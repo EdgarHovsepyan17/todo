@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --purple:rgb(56, 23, 98);
+    --gradient:linear-gradient(315deg, rgba(77, 141, 176, 1.0), rgba(98, 74, 183, 1.0));
+}
+
+body{
+    min-height: 100vh;
+    background:var(--gradient);
+    color:white;
+    font-family: "Poppins",sans-serif;
+}
+header{
+    font-size: 1.5rem;
+}
+header{
+    display:flex;
+    min-height: 20vh;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    margin-inline: auto;
+    display:flex;
+    min-height: 20vh;
+    align-items: center;
+    justify-content: center;
+}
+.todo-input{
+    color:var(--purple);
+    border: none;
+    font-size: 2rem;
+    background:white;
+    padding: 0.5rem;
+    outline: none;
+}
+
+.todo-button{
+    color:var(--purple);
+    border: none;
+    font-size: 2rem;
+    background:white;
+    padding: 0.5rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.todo-button:hover{
+    color:white;
+    background-color:var(--purple); 
+}
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo-list{
+    max-width: 90%;
+    min-width: 30%;
+    list-style: none;
+    margin-bottom: 2rem;
+}
+.todo-div{
+    font-size: 1.5rem;
+    color:var(--purple);
+    margin: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+.new-todo{
+    padding: 0.5rem;
+    background-color: white;
+    flex:1;
+}
+.trash-button,.completed-button{
+    margin-left: 1rem;
+    background-color: var(--purple);
+    padding: 1rem;
+    font-size: 1rem;
+    color:white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s all ease;
+}
+.completed-button:hover,.trash-button:hover{
+    color:var(--purple);
+    background-color:white; 
+}
+.fa-check,.fa-trash{
+    pointer-events: none;
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+.fall{
+    transform: translateY(10rem);
+    opacity: 0;
+}
+select{
+    width: 10rem;
+    font-size: 1em;
+    padding: 1.1rem 0.5rem;
+    cursor: pointer;
+    color:var(--purple);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+.select{
+    font-size: 1rem;
+    margin:1rem;
+    position: relative;
+    overflow: hidden;
+}
+.select::after{
+    padding: 1rem;
+    content: "\25BC";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--purple);
+    cursor: pointer;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.select:hover::after{
+    background-color: white;
+    color:var(--purple)
+}
+
+/* media queries */
+
+@media screen and (max-width: 768px) {
+    header{
+        font-size: 1.5rem;
+    }
+    .todo-input{
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }   
+    .todo-button{
+        font-size: 1.5rem;
+        padding: 0.5rem;
+    }
+    select{
+        background-color: var(--purple);
+        color:white;
+        width: 2.5rem;
+        font-size: 0.5em;
+        transition: all 0.3s ease;
+    }
+    select:hover{
+        background-color:white;
+        color:var(--purple);
+    }
+    .select::after{
+        padding: 0.7rem;
+    }
+
+    .todo-div{
+        font-size: 1rem;
+    }
+    .new-todo{
+        padding: 0.5rem;
+    }
+    .trash-button,.completed-button{
+        padding: 0.7rem;
+        font-size: 1rem;
+    }
+
+}
+@media screen and (max-width: 480px) {
+    header{
+        min-height: 15vh;
+        font-size: 1rem;
+    }
+    form{
+        min-height: 15vh;
+    }
+    .todo-input{
+        font-size: 1rem;
+        padding:0.8rem 0.5rem;
+    }   
+    .todo-button{
+        font-size: 1rem;
+        padding:0.8rem 0.5rem;
+    }
+    select{
+        width: 2.5rem;
+        font-size: 0.5rem;
+        transition: all 0.3s ease;
+    }
+    select:hover{
+        background-color:white;
+        color:var(--purple);
+    }
+    .select::after{
+        padding: 0.7rem;
+    }
+
+    .todo-div{
+        font-size: 1rem;
+    }
+    .new-todo{
+        padding: 0.5rem;
+    }
+    .trash-button,.completed-button{
+        padding: 0.7rem;
+        font-size: 1rem;
+    }
+}

@@ -81,15 +81,23 @@ function addTodo(event){
     //check
     if(item.classList[0]==="completed-button"){
         const toDo=item.parentElement;
+        toDoStatus=toDo.classList.contains("completed")?"completed":"uncompleted";
+        console.log(toDoStatus)
         let newTodo=toDo.querySelector(".new-todo")
         const todoText=newTodo.innerText;
         let todosInStorage=JSON.parse(localStorage.getItem("todos"));
+
         for(let i=0;i<todosInStorage.length;i++){
             let currentTodo=todosInStorage[i];
             if(currentTodo.text===todoText){
+                if(currentTodo.status!==toDoStatus){
+                    continue
+                }
                 if(currentTodo.status==="completed"){
                     currentTodo.status="uncompleted"
-                }else currentTodo.status="completed"
+                }else {
+                    currentTodo.status="completed";
+                }
                 break;
             }
         }
